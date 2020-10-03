@@ -1,21 +1,19 @@
 # Chrome Extention
-
-
 https://developer.chrome.com/extensions
-
-## Sample
-https://developer.chrome.com/extensions/samples
-
 
 ## Manifest File
 https://developer.chrome.com/extensions/manifest
 
+## Sample Extensions
+https://developer.chrome.com/extensions/samples
 
-### コンテキストメニュー追加
+### Sample Extensions Memo
+
+* コンテキストメニュー追加
 Context Menus Sample
 Context Menus Sample (with Event Page)
 
-### コンテキストメニュー追加 テキスト選択時に表示
+* コンテキストメニュー追加 テキスト選択時に表示
 Global Google Search
 
 ```javascript
@@ -26,18 +24,11 @@ Global Google Search
       contexts: ['selection'],
     });
 ```
-
-
-### 新しいタブを開く
+* 新しいタブを開く
 Cookie API Test Extension
 
-
-### ショートカットキー
-
+* ショートカットキー
 Tab Flipper
 
-### リンク先ダウンロード
-
+* リンク先ダウンロード
 Download Selected Links
-
-
