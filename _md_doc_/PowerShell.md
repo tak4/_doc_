@@ -4,9 +4,8 @@
 https://github.com/PowerShell/PowerShell#get-powershell
 
 ## バージョン確認
-
+```
 PS D:\develop\vbs\ipaddr>> $PSVersionTable
-
 Name                           Value
 ----                           -----
 PSVersion                      5.1.18362.752
@@ -17,23 +16,21 @@ CLRVersion                     4.0.30319.42000
 WSManStackVersion              3.0
 PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
+```
 
-
-
-Get-Module -FullyQualifiedName @{ModuleName="WebApplicationProxy"}
-
+Get-Module -FullyQualifiedName @{ModuleName="WebApplicationProxy"}  
 
 ## VSCode Extension
 
-PowserShell
+PowserShell  
 https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell
 
-PowerShell Integrated Console
+PowerShell Integrated Console  
 を管理者権限で実行するには、VSCodeを管理者権限で起動する必要がる
 
 ## ShortCut
 
-管理者権限 PowerShell起動
+管理者権限 PowerShell起動  
 Win + X -> A
 
 ## Help
@@ -45,8 +42,7 @@ Get-Help Get-NetAdapter
 
 ## Echo
 
-echo は Write-Output のエイリアス
-
+echo は Write-Output のエイリアス  
 ```ps1
 Write-Output '* ネットワークアダプタの一覧';
 ```
