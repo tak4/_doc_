@@ -24,13 +24,12 @@ vscode 実行 タブ
         },
     ]
 
-Chrome設定
+## Chrome設定
 
-起動オプションに以下を付ける
-
+起動オプションに以下を付ける  
 --remote-debugging-port=9222
 
-参考
+参考  
 https://kakkoyakakko2.hatenablog.com/entry/2018/06/13/003000
 
 

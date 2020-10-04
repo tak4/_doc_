@@ -92,27 +92,36 @@ Get-DnsClientServerAddress -InterfaceAlias "Wi-Fi"
 
 
 ## 5秒Sleep
-
+```ps1
 Start-Sleep 5
-
-
-
+```
 
 ### DHCP有効化／無効化
+```ps1
 Set-NetIPInterface -InterfaceAlias "Wi-Fi" -AddressFamily IPv4 -Dhcp Enabled
 Set-NetIPInterface -InterfaceAlias "Wi-Fi" -AddressFamily IPv4 -Dhcp Disabled
+```
 
 ### IPv4 IPアドレスとネットマスクを削除
+```ps1
 Remove-NetIPAddress -InterfaceAlias "Wi-Fi" -AddressFamily IPv4
+```
 ### デフォルトゲートウェイを削除
+```ps1
 Remove-NetRoute -InterfaceAlias "Wi-Fi" -AddressFamily IPv4
+```
 ### DNSサーバー IPアドレスを削除
+```ps1
 Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ResetServerAddresses
+```
 
 ### IPv4 IPアドレス／ネットマスク／デフォルトゲートウェイを設定
+```ps1
 New-NetIPAddress -InterfaceAlias "Wi-Fi" -AddressFamily IPv4 -IPAddress "192.168.1.2" -PrefixLength 24 -DefaultGateway "192.168.1.1"
+```
+
 ### DNSサーバー IPアドレスを設定
+```ps1
 Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddress "192.168.1.1"
 Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddress ("192.168.1.1","192.168.1.111")
-
-
+```

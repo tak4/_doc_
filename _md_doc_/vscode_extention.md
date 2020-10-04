@@ -3,7 +3,6 @@
 ## サンプルコード
 https://github.com/vscode-textbook/extensions
 
-
 ## npm のアップデート
 `npm install -g npm`
 
@@ -12,18 +11,15 @@ https://github.com/vscode-textbook/extensions
 
 ### VSCode拡張機能の構成管理ファイル
 
-package.json
-
-拡張機能がロードされるイベントを定義
-
+package.json  
+拡張機能がロードされるイベントを定義  
 ```json
 	"activationEvents": [
 		"onCommand:extension.helloWorld"
 	],
 ```
 
-拡張したい機能をコントリビューションポイントに登録
-
+拡張したい機能をコントリビューションポイントに登録  
 ```json
 	"contributes": {
 		"commands": [
@@ -35,8 +31,7 @@ package.json
 	},
 ```
 
-コマンドパレット表示条件指定
-
+コマンドパレット表示条件指定  
 ```json
 	"contributes": {
 		"menus": {
@@ -49,8 +44,7 @@ package.json
 		}
 ```
 
-キーバインド
-
+キーバインド  
 ```json
 	"contributes": {
 		"keybindings": [
@@ -69,28 +63,24 @@ package.json
 
 `code .`
 
-実行　F5
+実行 F5  
 
 ### コマンドの追加
 
-package.json
-
-コントリビューションポイントを追加
-
+package.json  
+コントリビューションポイントを追加  
 ```json
 	"contributes": {
 		"commands": [
 ```
 
-アクティベーションイベントを追加
+アクティベーションイベントを追加  
 ```json
 	"activationEvents": [
 ```
 
-src/extention.ts
-
-コマンドの登録
-
+src/extention.ts  
+コマンドの登録  
 ```json
 vscode.commands.registerCommand(
 	'コマンド名　extension.xxxxx',
@@ -100,60 +90,51 @@ vscode.commands.registerCommand(
 
 ### 拡張機能のインストール
 
-1. Extensionsフォルダにインストール
+1. Extensionsフォルダにインストール  
 .vscode/extensions に以下を置く
 
-2. パッケージ(.vsix)のインストール
-3. Marketplaceからのインストール
+2. パッケージ(.vsix)のインストール  
+3. Marketplaceからのインストール  
 
 
 ### テスト
-
-実行
+実行  
 Extention Tests
 
-コマンドラインでは以下 vscodeを終了させておく必要あり
+コマンドラインでは以下 vscodeを終了させておく必要あり  
 npm run test
 
-実行されるコマンドは以下に記載されている
+実行されるコマンドは以下に記載されている  
 package.json
 	"scripts": {
 
-テストの起点となるスクリプト
-runTest.js
+テストの起点となるスクリプト  
+runTest.js  
 runTest.ts をコンパイルして生成される
 
-
-テストの追加
-以下にテストコードを追加する
+テストの追加  
+以下にテストコードを追加する  
 ./src/test/suite
-
 
 ## 構成要素
 
 ### アクティベーション
-
 アクティベーションイベントの種類
 https://code.visualstudio.com/api/references/activation-events
-
 
 ### コントリビューションポイント
 
 ### VS Code API
-
 https://github.com/microsoft/vscode/blob/master/src/vs/vscode.d.ts
 
 ### 言語サーバー
-
 https://docs.microsoft.com/ja-jp/visualstudio/extensibility/language-server-protocol?view=vs-2019
-
 
 ## 機能実装方法
 
 ### ユーザー設定
 
 package.json
-
 contributes に configuration を追加
 データは永続化される
 vscode の 設定メニュー 拡張機能 からも設定可能
@@ -244,6 +225,6 @@ README.md の記載が必要
 拡張機能表示
 コマンドドロップダウン VSIXからインストール
 
-コマンドラインは以下 うまくいかない？
+コマンドラインは以下 うまくいかない？  
 `code --install-extension xxxxxx.vsix`
 
