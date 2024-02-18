@@ -4,6 +4,11 @@
 release操作で、zip、tar.gz が作成される。
 (個別にzip, tar.gz作成操作は不要)
 
+# tag
+
+v1.0.1
+v0.0.1-alpha.1
+
 
 # Semantic Versioning (セマンティックバージョニング)
 
@@ -17,3 +22,7 @@ release操作で、zip、tar.gz が作成される。
 
 Wikipediaより
 
+
+# release / pre-release
+
+relase を選択すれば、Latestとなる
