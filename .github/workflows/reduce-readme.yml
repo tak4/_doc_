@@ -14,7 +14,7 @@ jobs:
       run: sudo gem install asciidoctor-reducer
     - name: Reduce README
       # to preserve preprocessor conditionals, add the --preserve-conditionals option
-      run: asciidoctor-reducer -o sample.adoc sample_include.adoc
+      run: asciidoctor-reducer -o _asciidoc_/sample.adoc _asciidoc_/sample_include.adoc
     - name: Commit and Push README
       uses: EndBug/add-and-commit@v9
       with:
