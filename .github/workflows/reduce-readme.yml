@@ -2,7 +2,7 @@ name: Reduce README
 on:
   push:
     paths:
-    - _asciidoc_/sample_include.adoc
+    - _asciidoc_/*.adoc
     branches: ['**']
 jobs:
   build:
