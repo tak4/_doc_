@@ -1,14 +1,27 @@
+=== レベル 2
+
+Sample Sub
+
+=== レベル 2
+
+Sample Sub_Sub
+
+
 == レベル 1
 Text.
+Text1.
 
 === レベル 2
 Text.
+Text2.
 
 ==== レベル 3
 Text.
+Level3.
 
 ===== レベル 4
 Text.
+Level4.
 
 .データ形式はCSV, 各カラム幅は表示域の15% (60 ÷ 4 = 15)
 [format="csv",width="60%",cols="4"]
@@ -19,4 +32,6 @@ a,b,c,d
 A,B,C,D
 |======
 
-include::sample_sub.adoc[]
+=== レベル 2
+
+Sample Sub2
