@@ -1,5 +1,7 @@
 === レベル 2
 
-Sample Sub
+Sample Sub +
+Sample SubYYYY +
+
 
 include::sample_include_sub_sub.adoc[]
