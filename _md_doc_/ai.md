@@ -61,3 +61,7 @@ CUDA をつかって Deep Learning の計算を高速で行うためのライブ
 ## ReazonSpeech
 
 https://research.reazon.jp/projects/ReazonSpeech/index.html
+
+
+## whisper
+
