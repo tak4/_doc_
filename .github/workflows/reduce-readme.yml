@@ -4,6 +4,7 @@ on:
     paths:
     - _asciidoc_/*.adoc
     branches: ['**']
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
