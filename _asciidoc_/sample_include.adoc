@@ -3,6 +3,7 @@ include::sample_include_sub.adoc[]
 == レベル 1
 Text. +
 Text1. +
+Text1. +
 
 === レベル 2
 Text. +
