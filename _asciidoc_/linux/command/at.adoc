@@ -1,0 +1,30 @@
+
+ジョブの作成 +
+22:33に、touch test.txt　を実行する
+
+[source,bash]
+----
+takashi@DESKTOP-0BLRU16:~/develop/at$ at 2233
+warning: commands will be executed using /bin/sh
+at Wed Feb 21 22:33:00 2024
+at> touch test.txt
+at> <EOT>
+job 2 at Wed Feb 21 22:33:00 2024
+----
+
+ジョブ実行テスト用のスクリプト +
+
+[source,bash]
+----
+#!/bin/bash
+NOW=`date +%Y%m%d%H%M%S`
+echo ${NOW}
+touch ./test_${NOW}.txt
+----
+
+ジョブのキャンセル +
+
+[source,bash]
+----
+at -r 3
+----
