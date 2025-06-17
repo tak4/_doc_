@@ -45,9 +45,10 @@ RUN tar xvf arm-compiler-for-linux_24.10.1_Ubuntu-22.04_aarch64.tar
 
 # ユーザー builder をホームディレクトリ付きで追加
 RUN useradd -m -s /bin/bash builder
+RUN echo 'builder:builder' | chpasswd
 RUN usermod -aG sudo builder
 
-# 必要に応じて、以降の処理をtakashiユーザーで実行する場合
+# 必要に応じて、以降の処理を builder ユーザーで実行する場合
 USER builder
 WORKDIR /home/builder
 RUN mkdir arm-compiler
