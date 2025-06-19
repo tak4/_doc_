@@ -1,5 +1,16 @@
-# arm linker --info-topic
+# arm linker --info-stack
 https://developer.arm.com/documentation/100070/0609/linker-command-line-options/--info-topic--topic---?lang=en
+
+各関数ごとのスタックフレームサイズ（関数ごとにどれだけスタック領域を消費するか）  
+関数呼び出し経路ごとの最大スタック使用量（どの経路でスタック消費が最大になるか）  
+スタックオーバーフローのリスクがある関数や経路の特定  
+スタック使用量の合計や最悪ケースの解析  
+
+# arm linker --callgraph
+https://developer.arm.com/documentation/101754/0624/armlink-Reference/armlink-Command-line-Options/--callgraph----no-callgraph?lang=en
+
+# arm linker --callgraph_output=fmt
+https://developer.arm.com/documentation/101754/0624/armlink-Reference/armlink-Command-line-Options/--callgraph-output-fmt?lang=en
 
 
 # docker
