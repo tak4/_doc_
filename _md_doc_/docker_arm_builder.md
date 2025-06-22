@@ -1,3 +1,6 @@
+# Install Arm Compiler for Linux
+https://developer.arm.com/documentation/102621/latest/
+
 # arm linker --info-stack
 https://developer.arm.com/documentation/100070/0609/linker-command-line-options/--info-topic--topic---?lang=en
 
@@ -46,9 +49,13 @@ FROM ubuntu:22.04
 
 # RUN apt-get update && apt-get install -y build-essential
 
+# 依存関係の修復をしないとpythonが入らない
+RUN apt --fix-broken install
+
 RUN apt update
 RUN apt-get install -y vim
 RUN apt-get install sudo
+RUN apt install python3
 
 COPY ./arm-compiler/arm-compiler-for-linux_24.10.1_Ubuntu-22.04_aarch64.tar /home
 WORKDIR /home
@@ -65,7 +72,6 @@ WORKDIR /home/builder
 RUN mkdir arm-compiler
 
 # sudo passwd builder
-
 ```
 
 image build
@@ -84,4 +90,19 @@ sudo docker container run --name ubuntu_22_04 --rm --interactive --tty ubuntu_22
 https://developer.arm.com/Tools%20and%20Software/Arm%20Compiler%20for%20Linux#Downloads
 
 
+# cross compiler
+## QEMU エミュレータ
 
+```
+sudo docker run --privileged --rm tonistiigi/binfmt --install all
+```
+
+## arm64 image build
+```
+sudo docker buildx build --platform linux/arm64 -t ubuntu_2204:arm64 .
+```
+
+## container run
+```
+sudo docker container run --platform linux/arm64 --name ubuntu_2204 --rm --interactive --tty ubuntu_2204:arm64
+```

@@ -14,17 +14,21 @@ https://docs.docker.com/
 https://docs.docker.com/get-started/
 
 Docker ドキュメント日本語化プロジェクト
-http://docs.docker.jp/v1.9/#
+https://docs.docker.jp/index.html
 
 Docker 入門
 https://knowledge.sakura.ad.jp/13795/
 
-### インストール
-Docker Hub インストーラ
-Docker Hub は、Windows/Macでの利用の場合に使用する？ 
+## install
+
+### Docker Desktop on Windows
+for windows  
 https://docs.docker.com/docker-for-windows/install/
 
-image をここで探せる
+
+### Docker Engine
+for ubuntu  
+https://docs.docker.com/engine/install/ubuntu/
 
 
 
