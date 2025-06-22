@@ -86,3 +86,14 @@ name は run で指定したもの
 
 Docker Network  
 `docker network ls`
+
+file copy  
+
+host > container  
+`docker cp /path/to/host/file container_name:/path/in/container/`
+
+container > host  
+`docker cp container_name:/path/in/container/file /path/to/host/`
+
+実例)  
+`sudo docker cp ./test.txt c0b394c730ba:/home/builder`
