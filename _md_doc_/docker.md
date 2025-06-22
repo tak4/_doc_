@@ -80,52 +80,9 @@ Image 作成
 Docker Indexへ配置  
 `docker push`
 
-Docker ログ参照
+Docker ログ参照  
 `docker logs [name]`
 name は run で指定したもの
 
-Docker Network
-
-docker network ls
-
-
-### Word Press 構築
-
-https://hub.docker.com/_/mysql
-docker pull mysql
-
-docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=administrator -d mysql:latest
-docker exec -it some-mysql bash
-mysql -u root -p
-create database wpdb;
-create user 'wpadmin'@'localhost' identified by 'lindbergh';
-grant all on wpdb.* to 'wpadmin'@'localhost';
-
-
-
-
-※没
-docker run -it --rm mysql mysql -u root -p
-docker run -it --rm mysql mysql -hsome-mysql -uexample-user -p
-docker run --name some-mysql --network bridge -it -e MYSQL_ROOT_PASSWORD=administrator --rm mysql mysql -u root -p
-docker run --name some-mysql --network simple-network -it -e MYSQL_ROOT_PASSWORD=administrator --rm mysql mysql -u root -p
-
-https://hub.docker.com/_/wordpress
-docker pull wordpress
-docker run --name some-wordpress -p 8080:80 -d wordpress
-
-docker run --name some-wordpress -p 8080:80 -e WORDPRESS_DB_HOST=127.0.0.1 -e WORDPRESS_DB_USER=wpadmin -e WORDPRESS_DB_PASSWORD=lindbergh -e WORDPRESS_DB_NAME=wpdb -d wordpress
-
-docker exec -it some-wordpress bash
-
-※没
-docker run --name some-wordpress -p 8080:80 -d wordpress -e WORDPRESS_DB_USER=wpadmin -e WORDPRESS_DB_PASSWORD=lindbergh -e WORDPRESS_DB_NAME=wpdb
-docker run --name some-wordpress -p 8080:80 -e WORDPRESS_DB_HOST=127.0.0.1:3306 -e WORDPRESS_DB_USER=wpadmin -e WORDPRESS_DB_PASSWORD=lindbergh -e WORDPRESS_DB_NAME=wpdb -d wordpress
-docker run --name some-wordpress --network some-network -d wordpress
-docker run --name some-wordpress -p 8080:80 -d wordpress
-
-docker run --name some-wordpress -d wordpress
-
-### MySQL
-
-https://dev.mysql.com/downloads/workbench/
+Docker Network  
+`docker network ls`
