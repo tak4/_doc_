@@ -49,17 +49,26 @@ FROM ubuntu:22.04
 
 # RUN apt-get update && apt-get install -y build-essential
 
+RUN apt update
+
 # 依存関係の修復をしないとpythonが入らない
 RUN apt --fix-broken install
 
-RUN apt update
-RUN apt-get install -y vim
-RUN apt-get install sudo
-RUN apt install python3
+RUN apt install -y vim
+RUN apt install sudo
+RUN apt install -y python3
 
 COPY ./arm-compiler/arm-compiler-for-linux_24.10.1_Ubuntu-22.04_aarch64.tar /home
+COPY ./arm-compiler/atfl-experimental-linux-aarch64.tar.gz /home
+
 WORKDIR /home
+
 RUN tar xvf arm-compiler-for-linux_24.10.1_Ubuntu-22.04_aarch64.tar
+WORKDIR /home/arm-compiler-for-linux_24.10.1_Ubuntu-22.04
+RUN ./arm-compiler-for-linux_24.10.1_Ubuntu-22.04.sh -a
+RUN export PATH=/opt/arm/arm-linux-compiler-24.10.1_Ubuntu-22.04/bin:$PATH
+
+RUN tar xzvf atfl-experimental-linux-aarch64.tar.gz
 
 # ユーザー builder をホームディレクトリ付きで追加
 RUN useradd -m -s /bin/bash builder
@@ -69,19 +78,9 @@ RUN usermod -aG sudo builder
 # 必要に応じて、以降の処理を builder ユーザーで実行する場合
 USER builder
 WORKDIR /home/builder
-RUN mkdir arm-compiler
+RUN mkdir develop
 
 # sudo passwd builder
-```
-
-image build
-```
-sudo docker image build --tag ubuntu_2204:build-essential --file ./Dockerfile .
-```
-
-container run
-```
-sudo docker container run --name ubuntu_22_04 --rm --interactive --tty ubuntu_2204:build-essential bash
 ```
 
 
