@@ -53,5 +53,5 @@ eval $(dircolors -b ~/.dircolors)
 ### ~/.bachrc を編集して、環境変数 PS1に設定する
 
 ```bash
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ ‘
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 ```
