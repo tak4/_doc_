@@ -30,7 +30,22 @@ https://docs.docker.com/docker-for-windows/install/
 for ubuntu  
 https://docs.docker.com/engine/install/ubuntu/
 
+```
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
 
+
+### Docker公式のインストールスクリプトを実行する
+https://matsuand.github.io/docs.docker.jp.onthefly/engine/install/ubuntu/#install-using-the-convenience-script
+
+利用しているLinuxディストリビューションやCPUアーキテクチャを自動判別し、最適なDockerパッケージをインストールする
+
+```
+wget -qO- http://get.docker.com/ | ${SHELL}
+```
+-q：ダウンロード中の進捗やメッセージを表示しない（quietモード）。
+-O -：ダウンロードした内容をファイルではなく標準出力（画面や次のコマンド）に出力する。
+| ${SHELL} で、ダウンロードしたスクリプトの内容をそのまま現在のシェルで実行します。
 
 ### CLI
 
