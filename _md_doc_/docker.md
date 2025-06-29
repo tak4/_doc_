@@ -142,3 +142,24 @@ container > host
 
 実例)  
 `sudo docker cp ./test.txt c0b394c730ba:/home/builder`
+
+
+# ubuntu 22.04
+
+docker image 取得
+```
+sudo docker image pull ubuntu:22.04
+```
+
+カレントディレクトリのDockerfileより、docker imageをbuild
+```
+sudo docker build -t ubuntu:build-essential .
+```
+
+ubuntu:build-essential という image を使用して、ubuntu という名前でContainerを作成して、起動する。
+--rm：Container 終了時に、Container削除する。
+--interreactive：標準入力を開いたままにし、コンテナ内で対話的な操作を可能にする。
+```
+sudo docker container run --name ubuntu --rm --interactive --tty ubuntu:build-essential
+```
+
