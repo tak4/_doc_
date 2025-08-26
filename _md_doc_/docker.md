@@ -144,6 +144,9 @@ container > host
 `sudo docker cp ./test.txt c0b394c730ba:/home/builder`
 
 
+`sudo docker container run --name ubuntu_22_04 --rm --interactive --tty ubuntu:22.04 bash`
+
+
 # ubuntu 22.04
 
 docker image 取得
