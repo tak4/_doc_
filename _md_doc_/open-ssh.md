@@ -17,7 +17,14 @@ ssh -V
 
 sshサービス起動確認
 
-確認
+確認 Ubuntu 15.04以降の標準
+
+```bash
+systemctl status ssh
+```
+
+
+確認 Ubuntu 15.04以前
 
 ```bash
 service --status-all | grep ssh
@@ -35,7 +42,17 @@ service --status-all | grep ssh
  [ - ]  ssh
 ```
 
-サービス起動／停止（一時的） ※方法１
+サービス起動／停止（一時的）　※方法 Ubuntu 15.04以降の標準
+
+```bash
+sudo systemctl start ssh
+```
+
+```bash
+sudo systemctl stop ssh
+```
+
+サービス起動／停止（一時的） ※方法 Ubuntu 15.04以前の方法
 
 ```bash
 sudo service ssh start
@@ -44,16 +61,6 @@ sudo service ssh start
 
 ```bash
 sudo service ssh stop
-```
-
-サービス起動／停止（一時的）　※方法２
-
-```bash
-sudo systemctl start ssh
-```
-
-```bash
-sudo systemctl stop ssh
 ```
 
 サービス有効／無効（恒久的）　
