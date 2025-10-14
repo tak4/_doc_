@@ -146,6 +146,45 @@ container > host
 
 `sudo docker container run --name ubuntu_22_04 --rm --interactive --tty ubuntu:22.04 bash`
 
+# bunut 20.04
+
+Install the Docker packages.
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+
+https://hub.docker.com/layers/library/ubuntu/20.04/images/sha256-c664f8f86ed5a386b0a340d981b8f81714e21a8b9c73f658c4bea56aa179d54a
+
+docker image 取得
+```
+sudo docker image pull ubuntu:20.04
+```
+
+```
+sudo docker container run --name ubuntu2004 --rm --interactive --tty ubuntu:20.04 bash
+```
+
+
+起動中のContainerにアタッチする
+
+既に接続している側とコンソールを共有する
+
+```bash
+docker attach [container id]
+```
+
+Ctrl+P → Ctrl+Q で、デタッチする
+
+コンソールを共有せず、別bashで接続する
+
+```bash
+docker exec -it dd39c763b06d bash
+```
+
+-it インタラクティブなシェル
+
+
 
 # ubuntu 22.04
 

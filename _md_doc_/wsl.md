@@ -51,3 +51,9 @@ wsl --install -d Ubuntu-22.04
 wsl --list --online
 ```
 
+ディストリビューション削除
+```
+wsl --unregister Ubuntu-22.04
+```
+
+
