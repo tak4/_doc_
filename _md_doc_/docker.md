@@ -9,15 +9,18 @@ ContainerからImage作成することも可能 (Build)
 
 
 ## ドキュメント
-公式サイト
+公式サイト  
 https://docs.docker.com/
 https://docs.docker.com/get-started/
 
-Docker ドキュメント日本語化プロジェクト
+Docker ドキュメント日本語化プロジェクト  
 https://docs.docker.jp/index.html
 
-Docker 入門
+Docker 入門  
 https://knowledge.sakura.ad.jp/13795/
+
+実践 Docker - ソフトウェアエンジニアの「Docker よくわからない」を終わりにする本  
+https://zenn.dev/suzuki_hoge/books/2022-03-docker-practice-8ae36c33424b59
 
 ## install
 
@@ -80,7 +83,7 @@ wget -qO- http://get.docker.com/ | ${SHELL}
 ### CLI
 
 バージョン確認  
-https://docs.docker.com/engine/reference/commandline/version/
+https://docs.docker.com/engine/reference/commandline/version/  
 `docker --version`
 
 ローカル環境のImageの一覧を確認  
@@ -104,17 +107,20 @@ https://docs.docker.jp/engine/reference/run.html
 -p=[]
 コンテナのポートまたはポート範囲をホスト側に公開する
 
-コンテナ実行
+コンテナ実行  
 `docker start`
 
-コンテナ停止
+コンテナ停止  
 `docker stop [CONTAINER ID]`
 
-コンテナ削除
+コンテナ削除  
 `docker rm [CONTAINER ID]`
 
+停止中の全コンテナ削除  
+`docker container prune`
+
 イメージ削除
-`docker rmi [イメージID]`
+`docker rmi [IMAGE ID]`
 
 ローカル環境のContainerの一覧を確認  
 `docker ps -a`
@@ -131,6 +137,9 @@ name は run で指定したもの
 
 Docker Network  
 `docker network ls`
+
+コンテナの詳細情報を確認する  
+`docker inspect [CONTAINER ID]`
 
 file copy  
 
@@ -171,7 +180,7 @@ sudo docker container run --name ubuntu2004 --rm --interactive --tty ubuntu:20.0
 既に接続している側とコンソールを共有する
 
 ```bash
-docker attach [container id]
+docker attach [CONTAINER ID]
 ```
 
 Ctrl+P → Ctrl+Q で、デタッチする
@@ -179,7 +188,7 @@ Ctrl+P → Ctrl+Q で、デタッチする
 コンソールを共有せず、別bashで接続する
 
 ```bash
-docker exec -it dd39c763b06d bash
+docker exec -it -tty dd39c763b06d bash
 ```
 
 -it インタラクティブなシェル
