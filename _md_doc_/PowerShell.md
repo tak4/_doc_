@@ -148,3 +148,71 @@ Set-ExecutionPolicy Unrestricted
 ```bash
 powershell -ExecutionPolicy RemoteSigned -File .\for_all_files.ps1
 ```
+
+## WebDAVサーバからのダウンロード
+```
+# ユーザー名とパスワードを入力
+$cred = Get-Credential
+
+# BASIC認証付きでアクセス
+Invoke-WebRequest -Uri "https://example.com/protected/file.zip" -Credential $cred -OutFile "file.zip"
+```
+
+```
+# ユーザー名とパスワードを直接指定
+$username = "user"
+$password = "pass"
+
+# Base64エンコード
+$pair = "$username`:$password"
+$bytes = [System.Text.Encoding]::ASCII.GetBytes($pair)
+$encoded = [Convert]::ToBase64String($bytes)
+
+# ヘッダー付与してリクエスト
+Invoke-WebRequest -Uri "https://example.com/protected/file.zip" `
+  -Headers @{ Authorization = "Basic $encoded" } `
+  -OutFile "file.zip"
+```
+
+## WebDAVサーバへのアップロード
+
+```
+# アップロードするローカルファイルのパス
+$file = "C:\Users\User\Documents\report.pdf"
+
+# WebDAVサーバのURL（アップロード先ディレクトリ）
+$url = "https://example.com/webdav"
+
+# 認証情報
+$user = "username"
+$pass = "password"
+
+# ファイル名をURLに追加
+$uploadUrl = "$url/" + (Split-Path $file -Leaf)
+
+# ファイル内容をバイナリで読み込み
+$stream = New-Object -ComObject ADODB.Stream
+$stream.Type = 1 # バイナリモード
+$stream.Open()
+$stream.LoadFromFile($file)
+$buffer = $stream.Read()
+
+# HTTP PUTリクエストを作成
+$http = New-Object -ComObject MSXML2.ServerXMLHTTP
+$http.Open("PUT", $uploadUrl, $false, $user, $pass)
+$http.Send($buffer)
+
+# 結果確認
+if ($http.status -eq 201 -or $http.status -eq 204) {
+    Write-Host "Upload successful: $uploadUrl"
+} else {
+    Write-Host "Upload failed. Status: $($http.status) $($http.statusText)"
+}
+```
+
+```
+Invoke-WebRequest -Uri "https://example.com/webdav/report.pdf" `
+  -Credential (Get-Credential) `
+  -Method Put `
+  -InFile "C:\Users\User\Documents\report.pdf"
+```
