@@ -121,3 +121,30 @@ New-NetIPAddress -InterfaceAlias "Wi-Fi" -AddressFamily IPv4 -IPAddress "192.168
 Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddress "192.168.1.1"
 Set-DnsClientServerAddress -InterfaceAlias "Wi-Fi" -ServerAddress ("192.168.1.1","192.168.1.111")
 ```
+
+## 実行ポリシー
+
+```bash
+Get-ExecutionPolicy
+```
+
+AllSigned（署名付きスクリプトのみ実行可）  
+Bypass（検査迂回）  
+RemoteSigned（ローカルスクリプトと署名付きのリモートスクリプトのみ実行可） 
+Restricted（全て実行不可）  
+Undefined（未定義）  
+Unrestricted（全て実行可）  
+
+以下でスクリプト実行可能となる。※変更には管理者権限必要
+
+```bash
+Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy Bypass
+Set-ExecutionPolicy Unrestricted
+```
+
+一時的に権限指定して実行する方法
+
+```bash
+powershell -ExecutionPolicy RemoteSigned -File .\for_all_files.ps1
+```
