@@ -194,6 +194,75 @@ docker exec -it -tty dd39c763b06d bash
 -it インタラクティブなシェル
 
 
+## Dockerfile
+
+Dockerfile
+```
+FROM ubuntu:20.04
+
+RUN apt update
+RUN apt install -y vim
+
+COPY .vimrc /root/.vimrc
+
+CMD date +"%Y/%m/%d %H:%M:%S ( UTC )"
+```
+
+image の ビルド
+```
+docker image build     \
+    --tag my-ubuntu:date \
+    .
+```
+
+```
+docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED              SIZE
+my-ubuntu    date      90bc6f39d53c   About a minute ago   199MB
+ubuntu       20.04     b7bab04fd9aa   7 months ago         72.8MB
+```
+
+コンテナ起動
+```
+docker container run \
+    --name my-ubuntu1  \
+    --rm               \
+    my-ubuntu:date
+```
+
+## volume
+
+```
+docker volume ls
+```
+
+```
+docker container run                                  \
+    --name volume_test                                \
+    --rm                                              \
+    --interactive                                     \
+    --tty                                             \
+    --volume ./workspace:/workspace                   \
+    ubuntu:20.04                                      \
+    bash
+```
+
+イメージ化
+
+```
+docker commit [CONTAINER ID] volume_test:latest
+```
+
+コンテナ起動
+```
+docker container run                                  \
+    --name volume_test                                \
+    --rm                                              \
+    --interactive                                     \
+    --tty                                             \
+    volume_test:latest                                \
+    bash
+```
 
 # ubuntu 22.04
 
