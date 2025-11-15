@@ -196,6 +196,8 @@ docker exec -it -tty dd39c763b06d bash
 
 ## Dockerfile
 
+DockerfileからDocker iamgeを作成する
+
 Dockerfile
 ```
 FROM ubuntu:20.04
@@ -215,6 +217,7 @@ docker image build     \
     .
 ```
 
+作成したimage
 ```
 docker image ls
 REPOSITORY   TAG       IMAGE ID       CREATED              SIZE
@@ -222,7 +225,7 @@ my-ubuntu    date      90bc6f39d53c   About a minute ago   199MB
 ubuntu       20.04     b7bab04fd9aa   7 months ago         72.8MB
 ```
 
-コンテナ起動
+作成したimageでコンテナ起動
 ```
 docker container run \
     --name my-ubuntu1  \
@@ -232,6 +235,7 @@ docker container run \
 
 ## volume
 
+volumeを確認する
 ```
 docker volume ls
 ```
@@ -247,7 +251,9 @@ docker container run                                  \
     bash
 ```
 
-イメージ化
+## commit
+
+Docker container から Dokcer imageを作成する
 
 ```
 docker commit [CONTAINER ID] volume_test:latest
