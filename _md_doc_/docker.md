@@ -194,6 +194,59 @@ docker exec -it -tty dd39c763b06d bash
 -it インタラクティブなシェル
 
 
+# ユーザーを docker グループへ追加
+
+docker コマンド実行時に sudo 不要となる。
+
+vscode 拡張機能 Dev Containers を使用する時にもこの対応が必要らしい。
+
+dockerグループへの追加前だと下記の状態
+
+```bash
+docker image ls
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied
+```
+
+docker グループの存在、及び、グループIDを確認する
+
+```bash
+cat /etc/group | grep docker
+docker:x:999:takashi
+```
+
+ユーザーがdockerグループに追加されているか確認する
+
+追加前
+
+```bash
+id
+uid=1000(takashi) gid=1000(takashi) groups=1000(takashi),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),116(netdev)
+```
+
+追加後
+
+```bash
+id
+uid=1000(takashi) gid=1000(takashi) groups=1000(takashi),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),116(netdev),999(docker)
+```
+
+ユーザーをグループへ追加／削除
+
+追加／削除後は再ログインが必要
+
+追加
+
+```bash
+sudo gpasswd -a takashi docker
+```
+
+削除
+
+```bash
+sudo gpasswd -d takashi docker
+```
+
+
 ## Dockerfile
 
 DockerfileからDocker iamgeを作成する
