@@ -84,3 +84,10 @@ sudo systemctl disable ssh
 ```bash
 sudo systemctl is-enabled ssh
 ```
+
+パスワードによる認証を有効化する
+
+/etc/ssh/sshd_config
+```bash
+PasswordAuthentication yes
+```
