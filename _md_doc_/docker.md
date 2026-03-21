@@ -141,6 +141,12 @@ Docker Network
 コンテナの詳細情報を確認する  
 `docker inspect [CONTAINER ID]`
 
+コンテナの詳細情報を確認する  
+Mountsのみ抽出
+'docker inspect [CONTAINER ID] --format='{{json .Mounts}}' | jq'
+
+https://docs.docker.com/reference/cli/docker/inspect/
+
 file copy  
 
 host > container  
